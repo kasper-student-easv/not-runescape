@@ -5,6 +5,19 @@ var bossLogs = new List<BossLog>();
 var player = new Player();
 
 Console.WriteLine("=== OSRS Boss & Combat Tracker ===");
+Console.WriteLine();
+Console.WriteLine("Type User Name");
+var name = Console.ReadLine();
+if (name != null)
+{
+    Console.WriteLine("welcome "+name+" to the OSRS Boss & Combat Tracker!");
+}
+else
+{
+    name = "user";
+    Console.WriteLine("welcome "+name+" to the OSRS Boss & Combat Tracker!");
+}
+
 
 while (true)
 {

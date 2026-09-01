@@ -48,4 +48,27 @@ public class SpriteRenderer
         Console.WriteLine($"{moneyText} gold amount : {amount}");
         Console.ResetColor();
     }
+
+    public void DrawHealthBar(int current, int max)
+    {
+        string hp = "█";
+        string damage = "░";
+        StringBuilder hpText = new StringBuilder("[");
+        float healthProcent = ((current / max) * 100);
+        for (int i = 0; i < 10; i++)
+        {
+            if (i*10 < float.Floor(healthProcent))
+            {
+                hpText.Append(hp);
+            }
+            else
+            {
+                hpText.Append(damage);
+            }
+        }
+        hpText.Append("]");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"{hpText} HP : {current}/{max}");
+        Console.ResetColor();
+    }
 }

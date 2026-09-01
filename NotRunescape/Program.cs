@@ -23,7 +23,8 @@ else
 while (true)
 {
     //Console.WriteLine($"\n[HP: {player.CurrentHp}/{player.MaxHp} | Gold: {player.Gold} GP]");
-    Console.WriteLine($"\n[HP: {player.CurrentHp}/{player.MaxHp}]");
+    //Console.WriteLine($"\n[HP: {player.CurrentHp}/{player.MaxHp}]");
+    spriteRenderer.DrawHealthBar(player.CurrentHp,player.MaxHp);
     spriteRenderer.DrawGold(player.Gold);
     Console.Write("[1] Log Boss Kill  [2] View Drop Log  [3] View Inventory  [4] Drop Item  [5] Rest at Lumbridge  [99] Fight Hill Giant  [0] Exit\nChoice: ");
     var input = Console.ReadLine()?.Trim();

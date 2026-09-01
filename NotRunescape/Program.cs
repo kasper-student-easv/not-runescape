@@ -3,6 +3,7 @@ using OsrsTracker;
 
 var bossLogs = new List<BossLog>();
 var player = new Player();
+var spriteRenderer = new SpriteRenderer();
 
 Console.WriteLine("=== OSRS Boss & Combat Tracker ===");
 Console.WriteLine();
@@ -66,7 +67,7 @@ while (true)
     }
     else if (input == "99")
     {
-        StartGiantFight(player, bossLogs);
+        StartGiantFight(player, bossLogs, spriteRenderer);
     }
 }
 
@@ -96,7 +97,7 @@ static void HandleDropItem(Player player)
     }
 }
 
-static void StartGiantFight(Player player, List<BossLog> bossLogs)
+static void StartGiantFight(Player player, List<BossLog> bossLogs, SpriteRenderer spriteRenderer)
 {
     if (player.CurrentHp <= 0)
     {
@@ -124,9 +125,10 @@ static void StartGiantFight(Player player, List<BossLog> bossLogs)
         {
             int playerHit = rng.Next(0, 15);
             giantHp -= playerHit;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"\nYou slash the Hill Giant for a {playerHit}!");
-            Console.ResetColor();
+            //Console.ForegroundColor = ConsoleColor.Green;
+            //Console.WriteLine($"\nYou slash the Hill Giant for a {playerHit}!");
+            //Console.ResetColor();
+            spriteRenderer.DrawDamageHitspat(playerHit,true,true,"Hill Giant");
         }
         else if (choice == "2")
         {
@@ -146,9 +148,10 @@ static void StartGiantFight(Player player, List<BossLog> bossLogs)
         {
             int giantHit = rng.Next(0, 6);
             player.CurrentHp -= giantHit;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"The Hill Giant swings his club for {giantHit} damage!\n");
-            Console.ResetColor();
+            //Console.ForegroundColor = ConsoleColor.Red;
+            //Console.WriteLine($"The Hill Giant swings his club for {giantHit} damage!\n");
+            //Console.ResetColor();
+            spriteRenderer.DrawDamageHitspat(giantHit,false,false,"Hill Giant");
         }
     }
 

@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace NotRunescape;
 
 public class SpriteRenderer
@@ -30,6 +32,20 @@ public class SpriteRenderer
                 Console.WriteLine($"enemy hit you for {damage}!");
             }
         }
+        Console.ResetColor();
+    }
+
+    public void DrawGold(int amount)
+    {
+        char money = '$';
+        StringBuilder moneyText = new StringBuilder("[");
+        for (int i = 0; i < amount; i+=50)
+        {
+            moneyText.Append(money);
+        }
+        moneyText.Append("]");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"{moneyText} gold amount : {amount}");
         Console.ResetColor();
     }
 }
